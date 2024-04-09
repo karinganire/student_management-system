@@ -1,5 +1,6 @@
 const displineManagemnt = require("./controller/controller")
-const{addStudent,display,findById,findByMany}=displineManagemnt
+const { student } = require("./dp/displine")
+const{addStudent,display,findById,findByMany,updateStudent,updateByMany,removeStudent}=displineManagemnt
 // add new student
 let newStudent={
     name:'samy',
@@ -18,3 +19,14 @@ display()
 // find by id
 
 findByMany(27)
+//updateByMany
+updateStudent(2,"name","travis scott")
+
+const update = {
+    name:"joshua",
+    age:18,
+    level:"l5sod"
+}
+updateByMany(1,update)
+//remove student
+removeStudent(2)

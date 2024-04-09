@@ -28,12 +28,62 @@ const findById = (id) =>{
 }
 //find by age
 const findByMany =(age) =>{
-    var founderUser ={}
-    foundedUser = user.filter(foundedUser => foundedUser.age === age) 
+    var founderStudent ={}
+    foundedStudent = student.filter(foundedStudent => foundedStudent.age === age) 
 }
+
+//updateUsers
+const updateStudent= (id,key,value) =>{
+    var studentExist={}
+    studentExist = student.find(studentExist => studentExist.id=== id)
+    console.log(".........update student...........");
+    
+
+    if (!studentExist){
+        console.log("student don't exist");
+    }
+    else{
+        studentExist[key] =value
+        console.log("student updated");
+        console.log(studentExist);
+    }
+}
+
+    const updateByMany = (id,object) =>{
+        var studentExist={}
+        studentExist = student.find(studentExist => studentExist.id ===id)
+        console.log("..........update by many...........");
+        if(!studentExist){
+            console.log("user don't exist");
+        
+        }else{
+            for (key in object){
+                studentExist[key]= object[key]
+            }
+            console.log("student updated");
+            console.log(studentExist)
+        }
+    }
+    const removeStudent = (id)=>{
+        var studentExist={}
+        studentExist = student.find(studentExist => studentExist.id===id)
+        console.log(".......remove student.......")
+        if(!studentExist){
+            console.log("student you want to dellete don't exist");
+        }else{
+            var remmaingStudent= []
+            remmaingStudent= student.filter(remmaingStudent=> remmaingStudent.id !==id)
+            console.log("user removed");
+            console.log(remmaingStudent);
+        }
+    }
+
 module.exports={
     addStudent,
     display,
     findById,
-    findByMany
+    findByMany,
+    updateStudent,
+    updateByMany,
+    removeStudent
 }
